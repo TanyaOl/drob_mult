@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Множення дробів і піднесення до степеня — 8 клас</title>
+<style>
+:root{--bg:#fbfaf6;--fg:#1d2430;--mut:#5d6675;--card:#fff;--ln:#d9d6cc;--ac:#1f5fbf;--red:#c0392b;--ok:#1b7f4b;--okbg:#e4f5ea;--hi:#fff3c9;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#161a21;--fg:#e8eaee;--mut:#a3abb8;--card:#1f2530;--ln:#343c4a;--ac:#7fb0ff;--red:#ff8b7d;--ok:#6fdc9d;--okbg:#17382a;--hi:#4a3f12}}
+:root[data-theme=dark]{--bg:#161a21;--fg:#e8eaee;--mut:#a3abb8;--card:#1f2530;--ln:#343c4a;--ac:#7fb0ff;--red:#ff8b7d;--ok:#6fdc9d;--okbg:#17382a;--hi:#4a3f12}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.55 Georgia,"Times New Roman",serif}
+main{max-width:760px;margin:0 auto;padding:16px}
+h1{font-size:1.5rem;margin:.2em 0}h2{font-size:1.3rem;margin:.3em 0}h3{font-size:1.05rem;margin:0 0 .4em;color:var(--ac)}
+p{margin:.5em 0}.mut{color:var(--mut)}
+nav{display:flex;gap:6px;overflow-x:auto;padding:8px 0;position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);z-index:5}
+nav button{flex:none;border:1px solid var(--ln);background:var(--card);color:var(--fg);padding:7px 12px;border-radius:8px;font:inherit;font-size:.9rem;cursor:pointer}
+nav button.on{background:var(--ac);color:var(--bg);border-color:var(--ac)}
+.sec{display:none}.sec.on{display:block}
+.card,.box{background:var(--card);border:1px solid var(--ln);border-radius:10px;padding:14px;margin:12px 0}
+.box{border-left:5px solid var(--ac)}
+.f{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;margin:0 3px;line-height:1.25}
+.f>span:first-child{border-bottom:1.5px solid currentColor;padding:0 4px 2px}.f>span:last-child{padding:2px 4px 0}
+sup{font-size:.7em}s{text-decoration-thickness:2px;text-decoration-color:var(--red);color:var(--red)}
+.q{font-size:1.2rem;padding:8px 0;overflow-x:auto}
+.step{display:flex;gap:10px;align-items:flex-start;padding:8px 10px;margin:6px 0;border-radius:8px;background:var(--bg);border:1px solid var(--ln);overflow-x:auto}
+.step .n{flex:none;width:24px;height:24px;border-radius:50%;background:var(--ac);color:var(--bg);text-align:center;font:.85rem/24px sans-serif}
+.step.ans{background:var(--okbg);border-color:var(--ok)}.step.ans .n{background:var(--ok)}
+.btn{border:0;background:var(--ac);color:var(--bg);padding:9px 14px;border-radius:8px;font:inherit;font-size:.95rem;cursor:pointer;margin:6px 6px 0 0}
+.btn.g{background:transparent;color:var(--mut);border:1px solid var(--ln)}.btn:disabled{opacity:.4}
+button:focus-visible,input:focus-visible{outline:3px solid var(--ac);outline-offset:2px}
+.opts{display:grid;gap:8px;margin-top:8px}
+.opt{text-align:left;border:1px solid var(--ln);background:var(--card);color:var(--fg);padding:10px 12px;border-radius:8px;font:inherit;cursor:pointer}
+.opt.ok{background:var(--okbg);border-color:var(--ok)}.opt.bad{border-color:var(--red)}
+.fb{margin-top:8px;min-height:1.4em}
+input{width:64px;font:inherit;padding:6px;border:1px solid var(--ln);border-radius:6px;background:var(--card);color:var(--fg);text-align:center}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:1.15rem}
+.hi{background:var(--hi);padding:0 4px;border-radius:4px}
+table{border-collapse:collapse;width:100%}td,th{border:1px solid var(--ln);padding:6px 8px;text-align:center}
+ol.al{padding-left:22px}ol.al li{margin:4px 0}
+main{padding-bottom:110px}
+#ov{position:absolute;left:0;top:0;width:100%;overflow:hidden;pointer-events:none;z-index:4}
+#cv{display:block;pointer-events:none;touch-action:none}
+#cv.on{pointer-events:auto;cursor:crosshair}
+#tb{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(10px + env(safe-area-inset-bottom,0px));z-index:10;display:flex;flex-wrap:wrap;gap:6px;align-items:center;justify-content:center;max-width:calc(100% - 16px);background:var(--card);border:1px solid var(--ln);border-radius:14px;padding:6px 8px;box-shadow:0 4px 18px rgba(0,0,0,.25)}
+#tb button{border:1px solid var(--ln);background:var(--bg);color:var(--fg);border-radius:8px;padding:6px 10px;font:inherit;font-size:.9rem;cursor:pointer}
+#tb button.on{background:var(--ac);color:var(--bg);border-color:var(--ac)}
+#tb .sw{width:26px;height:26px;padding:0;border-radius:50%;border:2px solid var(--ln)}
+#tb .sw.on{border-color:var(--fg);background:inherit}
+#tb input[type=color]{width:34px;height:30px;padding:0;border:1px solid var(--ln);background:none}
+#tb input[type=range]{width:70px;padding:0}
+@media print{:root:root:root{--bg:#fff;--fg:#000;--card:#fff;--ln:#999;--ac:#000;--red:#000;--okbg:#fff;--hi:#fff}nav,#tb,#ov,h1,main>p,.btn,#cpf{display:none!important}.sec{display:none!important}#snb{display:block!important}.card{break-inside:avoid}}
+</style>
+</head>
+<body>
+<main>
+<h1>Множення дробів та піднесення до степеня</h1>
+<p class="mut">8 клас, §5. Йди по вкладках зліва направо. У кожного завдання тисни «Наступний крок» і намагайся вгадати крок, перш ніж його відкрити.</p>
+<nav id="nav" aria-label="Розділи"></nav>
+<div id="secs"></div>
+</main>
+<div id="ov"><canvas id="cv"></canvas></div>
+<div id="tb" role="toolbar" aria-label="Малювання">
+<button id="t-off" class="on" title="Прокручування та кнопки">✋ Звичайний</button>
+<button id="t-pen" title="Олівець">✏️ Олівець</button>
+<button id="t-er" title="Стирачка">🧽 Стирачка</button>
+<button class="sw" data-c="#e03131" style="background:#e03131" aria-label="Червоний"></button>
+<button class="sw" data-c="#1971c2" style="background:#1971c2" aria-label="Синій"></button>
+<button class="sw" data-c="#2f9e44" style="background:#2f9e44" aria-label="Зелений"></button>
+<button class="sw" data-c="#f08c00" style="background:#f08c00" aria-label="Помаранчевий"></button>
+<input id="col" type="color" value="#e03131" aria-label="Свій колір">
+<input id="sz" type="range" min="1" max="14" value="3" aria-label="Товщина">
+<button id="clr" title="Стерти все на цій вкладці">🗑 Очистити</button>
+</div>
+<script>
+const done=new Set();
+const R=s=>{let p;do{p=s;s=s.replace(/\{([^{}|]*)\|([^{}]*)\}/g,'<span class="f"><span>$1</span><span>$2</span></span>')}while(p!==s);return s.replace(/\^\{?(-?\w+)\}?/g,'<sup>$1</sup>')};
+const gcd=(a,b)=>b?gcd(b,a%b):Math.abs(a);
+
+const THEORY=`
+<div class="box"><h3>1. Головне правило</h3>
+<p>Щоб помножити дріб на дріб: <b>зверху × зверху, знизу × знизу</b>.</p>
+<div class="q">${R('{a|b}·{c|d} = {a·c|b·d}')} &nbsp; <span class="mut">(b ≠ 0, d ≠ 0)</span></div>
+<p class="mut">Знаменник ніколи не дорівнює нулю — на нуль ділити не можна.</p></div>
+
+<div class="card"><h3>Спробуй сам: калькулятор-візуалізатор</h3>
+<div class="row">
+<span class="f"><input id="a" type="number" value="2"><input id="b" type="number" value="3"></span>·
+<span class="f"><input id="c" type="number" value="9"><input id="d" type="number" value="4"></span></div>
+<div id="calc" class="q"></div>
+<p class="mut">Змінюй числа й дивись: спочатку записується добуток, потім скорочення.</p></div>
+
+<div class="box"><h3>2. Золоте правило: спочатку розклади, потім скорочуй</h3>
+<ol class="al">
+<li><b>Знак.</b> Скільки мінусів? Парна кількість → «+», непарна → «−».</li>
+<li><b>Розклади на множники</b> усе, що можна: винеси спільний множник, застосуй формули.</li>
+<li><b>Запиши одним дробом</b> (усе зверху, усе знизу), нічого поки не перемножуючи.</li>
+<li><b>Викресли</b> однакові множники зверху й знизу.</li>
+<li><b>Перемнож</b> те, що залишилось, і запиши відповідь.</li></ol>
+<p>Цілий вираз перетворюємо на дріб зі знаменником 1: ${R('7x = {7x|1}')}.</p></div>
+
+<div class="box"><h3>3. Формули, які потрібні для розкладання</h3>
+<table>
+<tr><td>${R('a^2−b^2 = (a−b)(a+b)')}</td><td>різниця квадратів</td></tr>
+<tr><td>${R('a^2±2ab+b^2 = (a±b)^2')}</td><td>квадрат суми / різниці</td></tr>
+<tr><td>${R('a^3+b^3 = (a+b)(a^2−ab+b^2)')}</td><td>сума кубів</td></tr>
+<tr><td>${R('a^3−b^3 = (a−b)(a^2+ab+b^2)')}</td><td>різниця кубів</td></tr>
+<tr><td>${R('b−a = −(a−b)')}</td><td>«перевернута» дужка: виносимо мінус</td></tr></table></div>
+
+<div class="box"><h3>4. Піднесення дробу до степеня</h3>
+<div class="q">${R('({a|b})^n = {a^n|b^n}')}</div>
+<p>Степінь діє <b>на кожен множник</b> зверху й знизу. Далі:</p>
+<ul><li>${R('(a^m)^n = a^{m·n}')}: степінь у степені — показники <b>множимо</b>, наприклад (m^2)^3 = m^6;</li>
+<li>${R('a^m·a^n = a^{m+n}')}: однакові основи — показники <b>додаємо</b>;</li>
+<li>парний степінь: (−A)^2 = A^2 (мінус зникає); непарний: (−A)^3 = −A^3 (мінус лишається).</li></ul></div>`;
+
+const S=[
+{id:'58',t:'5.8',h:'Дріб × цілий вираз',i:'Ціле перетворюємо на дріб зі знаменником 1, множимо за правилом і скорочуємо. Скорочуємо числа окремо, кожну букву окремо.',
+ tasks:[
+ {n:'5.8 (1)',q:'{a|16m^2}·12m',s:['Запишемо 12m дробом: 12m = {12m|1}.','Зверху × зверху, знизу × знизу: {a|16m^2}·{12m|1} = {a·12m|16m^2·1}.','Розкладаємо: 12 = 4·3, 16 = 4·4, m^2 = m·m. Викреслюємо однакове: {a·<s>4</s>·3·<s>m</s>|<s>4</s>·4·<s>m</s>·m}.','Відповідь: {3a|4m}']},
+ {n:'5.8 (2)',q:'a^3·{7x^3|a^2}',s:['a^3 = {a^3|1}, тож множимо: {a^3·7x^3|1·a^2}.','Скорочуємо a^3 : a^2 = a (від показника віднімаємо показник: 3−2 = 1).','Відповідь: 7ax^3']},
+{n:'5.8 (3)',q:'−{7y|4x^2}·12xy^3',s:['Мінус один, тому результат зі знаком «−». 12xy^3 = {12xy^3|1}.','−{7y·12xy^3|4x^2}. Числа: 12 : 4 = 3, тоді 7·3 = 21. Букви: y·y^3 = y^4 угорі; x : x^2 = 1/x.','Відповідь: −{21y^4|x}']},
+{n:'5.8 (4)',q:'5cm^4·(−{m|15c})',s:['Один мінус → результат буде зі знаком «−». 5cm^4 = {5cm^4|1}.','Множимо: −{5cm^4·m|1·15c}. Угорі m^4·m = m^5 (показники додаємо).','Розкладаємо 15 = 5·3 і викреслюємо 5 та c: −{<s>5</s><s>c</s>·m^5|<s>5</s>·3·<s>c</s>}.','Відповідь: −{m^5|3}']},
+{n:'5.8 (5)',q:'−5ab^2·(−{1|10ab})',s:['Два мінуси дають «+». 5ab^2 = {5ab^2|1}.','{5ab^2·1|1·10ab}. Скорочуємо: 5 : 10 = 1/2; a : a = 1; b^2 : b = b.','Відповідь: {b|2}']},
+{n:'5.8 (6)',q:'13c^2d·{7|26c^3d^2}',s:['13c^2d = {13c^2d|1}. Множимо: {13c^2d·7|26c^3d^2}.','Числа: 26 = 13·2, тому 13 скорочується, лишається 7 угорі й 2 внизу. c^2 : c^3 = 1/c; d : d^2 = 1/d.','Відповідь: {7|2cd}']}],
+ quiz:{q:'{3x|8y^2}·16y = ?',o:['{6x|y}','6xy','{3x|y}','{48xy|8y}'],c:0,w:'3x·16y = 48xy, внизу 8y^2. 48:8 = 6, y:y^2 = 1/y. Виходить 6x/y.'}},
+
+{id:'511',t:'5.11',h:'Розкладання на множники',i:'Тут дроби «в лоб» не множимо. Спочатку розкладаємо на множники, щоб побачити однакові дужки.',
+ tasks:[
+ {n:'5.11 (1)',q:'{a^2+2a|5}·{a|4a+8}',s:['Розкладаємо: a^2+2a = a(a+2) (виносимо a); 4a+8 = 4(a+2) (виносимо 4).','Одним дробом: {a(a+2)·a|5·4(a+2)}.','Однакова дужка (a+2) є зверху й знизу — викреслюємо: {a<s>(a+2)</s>·a|5·4<s>(a+2)</s>}.','Відповідь: {a^2|20}']},
+ {n:'5.11 (3)',q:'{2a−b|10a}·{15a^2|b−2a}',s:['Дивимось: b−2a — це «перевернута» дужка 2a−b. Виносимо мінус: b−2a = −(2a−b).','Підставляємо: {(2a−b)·15a^2|10a·(−(2a−b))}. Мінус виносимо перед дробом.','Викреслюємо (2a−b); 15 і 10 ділимо на 5; a^2 і a скорочуємо на a: −{<s>(2a−b)</s>·3·<s>5</s>a·<s>a</s>·a|2·<s>5</s>·<s>a</s>·<s>(2a−b)</s>}.','Відповідь: −{3a|2}']}],
+ quiz:{q:'{b^2−b|4}·{8|b−1} = ?',o:['2b','{b|2}','2','8b'],c:0,w:'b^2−b = b(b−1). Дужка (b−1) скорочується; 8:4 = 2. Лишається 2b.'}},
+
+{id:'513',t:'5.13',h:'Спростити й підставити',i:'Спочатку спрощуємо, і тільки потім підставляємо числа. Так рахувати набагато легше.',
+ tasks:[
+ {n:'5.13',q:'Спростити {5x^2+15x|y^2−2y}·{2−y|x+3} при x = 17, y = −{1|23}',s:['Розкладаємо: 5x^2+15x = 5x(x+3); y^2−2y = y(y−2); 2−y = −(y−2).','Одним дробом: {5x(x+3)·(−(y−2))|y(y−2)·(x+3)}.','Викреслюємо (x+3) і (y−2): −{5x|y}.','Підставляємо x = 17, y = −1/23: −5·17 : (−1/23). Ділити на дріб — це множити на обернений: 5·17·23.','Рахуємо: 5·17 = 85; 85·23 = 1955. Відповідь: −{5x|y}, значення 1955. Це рік, коли Катерина Ющенко створила «Адресну мову».']}],
+ quiz:{q:'{x−5|7}·{7|5−x} = ?',o:['−1','1','0','x'],c:0,w:'5−x = −(x−5). Тому (x−5)/(−(x−5)) = −1.'}},
+
+{id:'515',t:'5.15–5.16',h:'Піднесення дробу до степеня',i:'Степінь роздаємо кожному множнику: числу, кожній букві, чисельнику й знаменнику. Показник степеня в степені множимо. Дивимось на знак.',
+ tasks:[
+ {n:'5.15 (1)',q:'({p|4m})^3',s:['Степінь 3 діє на чисельник і на знаменник: {p^3|(4m)^3}.','(4m)^3 = 4^3·m^3 = 64m^3.','Відповідь: {p^3|64m^3}']},
+ {n:'5.15 (3)',q:'(−{3m^2n|7})^2',s:['Степінь 2 парний: мінус зникає, (−A)^2 = A^2.','{3^2·(m^2)^2·n^2|7^2}. Показники множимо: (m^2)^2 = m^4.','Відповідь: {9m^4n^2|49}']},
+ {n:'5.16 (1)',q:'({c|5m})^2',s:['Степінь 2 діє на чисельник і знаменник: {c^2|(5m)^2}.','(5m)^2 = 5^2·m^2 = 25m^2.','Відповідь: {c^2|25m^2}']},
+{n:'5.16 (2)',q:'({y|2x^3})^4',s:['{y^4|(2x^3)^4} = {y^4|2^4·(x^3)^4}.','2^4 = 16; (x^3)^4 = x^12 (показники множимо: 3·4 = 12).','Відповідь: {y^4|16x^12}']},
+{n:'5.16 (3)',q:'(−{4c^2m^3|5})^2',s:['Степінь 2 парний → мінус зникає.','{4^2·(c^2)^2·(m^3)^2|5^2}: 4^2 = 16, c^4, m^6, 5^2 = 25.','Відповідь: {16c^4m^6|25}']},
+{n:'5.16 (4)',q:'(−{3c^3|m^7})^3',s:['Степінь 3 непарний: мінус залишається.','−{3^3·(c^3)^3|(m^7)^3}. Множимо показники: 3·3 = 9, 7·3 = 21.','Відповідь: −{27c^9|m^21}']},
+ {n:'5.16 (5)',q:'({c^3m|2a^2})^6',s:['Степінь 6 діє на кожен множник: {(c^3)^6·m^6|2^6·(a^2)^6}.','(c^3)^6 = c^18; 2^6 = 64; (a^2)^6 = a^12.','Відповідь: {c^18m^6|64a^12}']},
+{n:'5.16 (6)',q:'(−{ab^3|c^2})^8',s:['Степінь 8 парний → знак «+».','{a^8·(b^3)^8|(c^2)^8}.','Показники множимо: 3·8 = 24; 2·8 = 16.','Відповідь: {a^8b^24|c^16}']}],
+ quiz:{q:'({2a|b^3})^4 = ?',o:['{16a^4|b^12}','{8a^4|b^12}','{16a^4|b^7}','{2a^4|b^12}'],c:0,w:'2^4 = 16, a^4, (b^3)^4 = b^12.'}},
+
+{id:'517',t:'5.17',h:'Добуток трьох дробів',i:'Правило те саме: усе зверху в один чисельник, усе знизу в один знаменник. Скорочуємо числа, потім кожну букву.',
+ tasks:[
+ {n:'5.17 (1)',q:'{54a^2c|81b^3}·{32ab|13c^3}·{52bc^2|128a^3}',s:['Числа: зверху 54·32·52, знизу 81·13·128. Скорочуємо: 54/81 = 2/3 (ділимо на 27); 52/13 = 4; 32·4 = 128, і 128/128 = 1. Залишилось 2/3.','Буква a: зверху a^2·a = a^3, знизу a^3 → зникає.','Буква c: зверху c·c^2 = c^3, знизу c^3 → зникає. Буква b: зверху b·b = b^2, знизу b^3 → лишається b знизу.','Відповідь: {2|3b}']},
+ {n:'5.17 (2)',q:'{147x^4y^2|p^3}·10xp^2·{y^3|105x^5y}',s:['10xp^2 = {10xp^2|1}. Числа: 147·10 : 105. Тут 147 = 21·7, 105 = 21·5, отже 7·10 : 5 = 14.','x: зверху x^4·x = x^5, знизу x^5 → зникає. y: зверху y^2·y^3 = y^5, знизу y → y^4 зверху.','p: зверху p^2, знизу p^3 → p знизу.','Відповідь: {14y^4|p}']}],
+ quiz:{q:'{4x|y}·{y|2z}·{z|x} = ?',o:['2','4','{1|2}','2xyz'],c:0,w:'Зверху 4xyz, знизу 2xyz. Усі букви скорочуються, 4:2 = 2.'}},
+
+{id:'519',t:'5.19',h:'Формули скороченого множення',i:'Кожен чисельник і знаменник розкладаємо за формулами. Це найважливіший крок. Далі скорочуємо однакові дужки.',
+ tasks:[
+ {n:'5.19 (1)',q:'{m^2−4m+4|m^2+6m+9}·{m^2−9|3m−6}',s:['Розкладаємо: m^2−4m+4 = (m−2)^2; m^2+6m+9 = (m+3)^2; m^2−9 = (m−3)(m+3); 3m−6 = 3(m−2).','Одним дробом: {(m−2)^2·(m−3)(m+3)|(m+3)^2·3(m−2)}.','Скорочуємо (m−2) на один раз і (m+3) на один раз.','Відповідь: {(m−2)(m−3)|3(m+3)}']},
+ {n:'5.19 (2)',q:'−{x^2−10x+25|x^2−3x+9}·{x^3+27|25−x^2}',s:['Розкладаємо: x^2−10x+25 = (x−5)^2 = (5−x)^2; x^3+27 = (x+3)(x^2−3x+9) (сума кубів); 25−x^2 = (5−x)(5+x).','−{(5−x)^2·(x+3)(x^2−3x+9)|(x^2−3x+9)·(5−x)(5+x)}.','Скорочуємо трином (x^2−3x+9) і одну дужку (5−x): −{(5−x)(x+3)|5+x}.','Мінус заносимо в дужку: −(5−x) = x−5. Відповідь: {(x−5)(x+3)|x+5}']}],
+ quiz:{q:'{x^2−9|x+1}·{x+1|x−3} = ?',o:['x+3','x−3','{x+3|x+1}','x^2−9'],c:0,w:'x^2−9 = (x−3)(x+3). Скорочуються (x−3) і (x+1). Лишається x+3.'}},
+
+{id:'521',t:'5.21',h:'Вираз × дріб',i:'Вираз у дужках теж розкладаємо: виносимо спільний множник або застосовуємо формулу.',
+ tasks:[
+ {n:'5.21 (1)',q:'(4a+20b)·{5|a^2−25b^2}',s:['4a+20b = 4(a+5b) (виносимо 4). a^2−25b^2 = (a−5b)(a+5b) (різниця квадратів).','{4(a+5b)·5|(a−5b)(a+5b)}.','Викреслюємо (a+5b).','Відповідь: {20|a−5b}']},
+ {n:'5.21 (2)',q:'(m^2−4)·{2m|(m−2)^2}',s:['m^2−4 = (m−2)(m+2).','{(m−2)(m+2)·2m|(m−2)^2}, а (m−2)^2 = (m−2)(m−2).','Скорочуємо одну дужку (m−2).','Відповідь: {2m(m+2)|m−2}']},
+ {n:'5.21 (3)',q:'−{a|2a^2−18}·(a^2−6a+9)',s:['2a^2−18 = 2(a^2−9) = 2(a−3)(a+3); a^2−6a+9 = (a−3)^2.','−{a·(a−3)^2|2(a−3)(a+3)}.','Скорочуємо одну дужку (a−3).','Відповідь: −{a(a−3)|2(a+3)}']},
+ {n:'5.21 (4)',q:'(x^3+27y^3)·{5|3x^2−9xy+27y^2}',s:['x^3+27y^3 = (x+3y)(x^2−3xy+9y^2) (сума кубів: 27y^3 = (3y)^3). Знизу виносимо 3: 3(x^2−3xy+9y^2).','{(x+3y)(x^2−3xy+9y^2)·5|3(x^2−3xy+9y^2)}.','Скорочуємо трином x^2−3xy+9y^2.','Відповідь: {5(x+3y)|3}']}],
+ quiz:{q:'(a^2−4)·{3|a+2} = ?',o:['3(a−2)','3(a+2)','3a−2','{a−2|3}'],c:0,w:'a^2−4 = (a−2)(a+2). Скорочуємо (a+2), лишається 3(a−2).'}}
+];
+
+function card(t){const d=document.createElement('div');d.className='card';
+d.innerHTML='<h3>'+t.n+'</h3><div class="q">'+R(t.q)+'</div><div class="st"></div><button class="btn">Наступний крок</button><button class="btn g">Спочатку</button>';
+let i=0;const st=d.querySelector('.st'),[b1,b2]=d.querySelectorAll('button');
+b1.onclick=()=>{if(i<t.s.length){const last=i==t.s.length-1,p=document.createElement('div');p.className='step'+(last?' ans':'');p.innerHTML='<span class="n">'+(last?'✓':i+1)+'</span><div>'+R(t.s[i])+'</div>';st.appendChild(p);i++;if(last){b1.disabled=true;done.add(t.n)}}};
+b2.onclick=()=>{st.innerHTML='';i=0;b1.disabled=false;done.delete(t.n)};return d}
+
+function quiz(z){const d=document.createElement('div');d.className='card';
+d.innerHTML='<h3>Перевір себе</h3><div class="q">'+R(z.q)+'</div><div class="opts"></div><div class="fb" aria-live="polite"></div>';
+const o=d.querySelector('.opts'),fb=d.querySelector('.fb');
+z.o.forEach((x,k)=>{const b=document.createElement('button');b.className='opt';b.innerHTML=R(x);b.onclick=()=>{if(k===z.c){b.classList.add('ok');fb.innerHTML='Правильно. '+R(z.w);o.querySelectorAll('button').forEach(e=>e.disabled=true)}else{b.classList.add('bad');b.disabled=true;fb.textContent='Ще ні, спробуй ще раз. Подумай, що розкласти на множники.'}};o.appendChild(b)});return d}
+
+const cv=document.getElementById('cv'),cx=cv.getContext('2d'),ov=document.getElementById('ov'),store={};let cur=null,tool='off',col='#e03131',drawing=false,lx=0,ly=0;
+function fit(){const m=document.querySelector('main'),h=Math.ceil(m.getBoundingClientRect().bottom+scrollY+20),w=Math.ceil(document.documentElement.clientWidth);ov.style.height=h+'px';if(cv.width<w||cv.height<h){const t=document.createElement('canvas');t.width=cv.width;t.height=cv.height;t.getContext('2d').drawImage(cv,0,0);cv.width=Math.max(w,cv.width);cv.height=Math.max(h,cv.height);cx.drawImage(t,0,0)}}
+function setTool(t){tool=t;cv.classList.toggle('on',t!=='off');['off','pen','er'].forEach(k=>document.getElementById('t-'+k).classList.toggle('on',k===t))}
+['off','pen','er'].forEach(k=>document.getElementById('t-'+k).onclick=()=>setTool(k));
+document.querySelectorAll('#tb .sw').forEach(b=>b.onclick=()=>{col=b.dataset.c;document.getElementById('col').value=col;document.querySelectorAll('#tb .sw').forEach(x=>x.classList.toggle('on',x===b));if(tool!=='pen')setTool('pen')});
+document.getElementById('col').oninput=e=>{col=e.target.value;document.querySelectorAll('#tb .sw').forEach(x=>x.classList.remove('on'));if(tool!=='pen')setTool('pen')};
+document.getElementById('clr').onclick=()=>{cx.clearRect(0,0,cv.width,cv.height);persist()};
+function seg(x,y){const s=+document.getElementById('sz').value;cx.lineCap=cx.lineJoin='round';cx.globalCompositeOperation=tool==='er'?'destination-out':'source-over';cx.strokeStyle=col;cx.lineWidth=tool==='er'?Math.max(28,s*8):s;for(let i=0;i<(tool==='er'?3:1);i++){cx.beginPath();cx.moveTo(lx,ly);cx.lineTo(x+.01,y);cx.stroke()}lx=x;ly=y}
+cv.addEventListener('pointerdown',e=>{if(tool==='off')return;fit();drawing=true;lx=e.pageX;ly=e.pageY;cv.setPointerCapture(e.pointerId);seg(e.pageX,e.pageY);e.preventDefault()});
+cv.addEventListener('pointermove',e=>{if(!drawing)return;const ev=e.getCoalescedEvents?e.getCoalescedEvents():[];(ev.length?ev:[e]).forEach(p=>seg(p.pageX,p.pageY))});
+['pointerup','pointercancel'].forEach(n=>cv.addEventListener(n,()=>{drawing=false;persist()}));
+if(window.ResizeObserver)new ResizeObserver(fit).observe(document.querySelector('main'));
+addEventListener('resize',fit);
+const nav=document.getElementById('nav'),secs=document.getElementById('secs');
+function add(id,t,el){const b=document.createElement('button');b.textContent=t;b.onclick=()=>show(id);b.dataset.id=id;nav.appendChild(b);el.id='s'+id;el.className='sec';secs.appendChild(el)}
+function persist(){try{store[cur]=cv.toDataURL();localStorage.setItem('urok-draw',JSON.stringify(store))}catch(e){}}
+function show(id){if(cur)persist();if(id==='z')upd();cx.clearRect(0,0,cv.width,cv.height);document.querySelectorAll('.sec').forEach(e=>e.classList.toggle('on',e.id=='s'+id));nav.querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.id==id));scrollTo(0,0);cur=id;fit();if(store[id]){const im=new Image;im.onload=()=>cx.drawImage(im,0,0);im.src=store[id]}}
+
+const rnd=(a,b)=>a+Math.floor(Math.random()*(b-a+1)),pick=a=>a[rnd(0,a.length-1)],sg=x=>x<0?'−'+(-x):''+x;let stars=0;
+const bump=()=>{stars++;document.getElementById('stars').textContent='⭐ '+stars};
+const gcard=(t,i)=>{const d=document.createElement('div');d.className='card';d.innerHTML='<h3>'+t+'</h3><p class=mut>'+i+'</p><div class=q></div><div class=ga></div><div class=fb aria-live=polite></div>';return d};
+const ansUI=`<span class=f><input type=number class=i1><input type=number class=i2></span> <button class=btn>Перевірити</button><button class='btn g'>Підказка</button><button class='btn g'>Інше</button>`;
+function gA(){const d=gcard('Гра 1: помнож числові дроби','Впиши відповідь нескоротним дробом: угорі чисельник, внизу знаменник.'),q=d.querySelector('.q'),ga=d.querySelector('.ga'),fb=d.querySelector('.fb');let a,b,c,e,n,m;
+function nw(){a=rnd(1,9);b=rnd(2,9);c=rnd(1,9);e=rnd(2,9);if(Math.random()<.3)a=-a;n=a*c;m=b*e;q.innerHTML=R('{'+sg(a)+'|'+b+'}·{'+c+'|'+e+'} = ');ga.innerHTML=ansUI;fb.textContent='';const[i1,i2]=ga.querySelectorAll('input'),[ok,hn,nx]=ga.querySelectorAll('button');
+ok.onclick=()=>{const p=+i1.value,r=+i2.value;if(!i1.value||!i2.value||!r){fb.textContent='Впиши обидва числа.';return}if(p*m!==n*r){fb.textContent='Ще ні. Перемнож зверху й знизу, потім скороти.';return}if(r<0||gcd(Math.abs(p),Math.abs(r))>1){fb.textContent='Значення вірне, але дріб ще можна скоротити (знак пиши вгорі).';return}bump();fb.textContent='Так! ✅ Наступне…';setTimeout(nw,1100)};
+hn.onclick=()=>{fb.innerHTML='Зверху × зверху, знизу × знизу: '+R('{'+sg(a)+'·'+c+'|'+b+'·'+e+'} = {'+sg(n)+'|'+m+'}')+'. Тепер скороти.'};nx.onclick=nw}
+nw();return d}
+function gB(){const d=gcard('Гра 2: степінь дробу','Піднеси дріб до степеня. Не забудь про знак!'),q=d.querySelector('.q'),ga=d.querySelector('.ga'),fb=d.querySelector('.fb');let a,b,k,ng;
+function nw(){do{a=rnd(1,4);b=rnd(2,5)}while(gcd(a,b)>1);k=rnd(2,4);ng=Math.random()<.5;q.innerHTML=R('('+(ng?'−':'')+'{'+a+'|'+b+'})^'+k+' = ');ga.innerHTML=ansUI;fb.textContent='';const[i1,i2]=ga.querySelectorAll('input'),[ok,hn,nx]=ga.querySelectorAll('button');
+ok.onclick=()=>{if(!i1.value||!i2.value){fb.textContent='Впиши обидва числа.';return}const s=ng&&k%2?-1:1;if(+i1.value===s*a**k&&+i2.value===b**k){bump();fb.textContent='Так! ✅ Наступне…';setTimeout(nw,1100)}else fb.textContent='Ще ні. Степінь діє на чисельник і знаменник; перевір знак.'};
+hn.onclick=()=>{fb.innerHTML=R('{'+a+'^'+k+'|'+b+'^'+k+'}')+': степінь і до чисельника, і до знаменника. '+(ng?(k%2?'Степінь непарний, мінус лишається.':'Степінь парний, мінус зникає.'):'')};nx.onclick=nw}
+nw();return d}
+function gC(){const d=gcard('Гра 3: плюс чи мінус?','Визнач знак результату, не рахуючи. Кожна правильна відповідь дає зірку.'),q=d.querySelector('.q'),ga=d.querySelector('.ga'),fb=d.querySelector('.fb');let neg,why;const F=['{a|b}','{2x|3}','{m^2|n}','{5|c}'];
+function nw(){const k=rnd(2,9),l=rnd(1,6),two=Math.random()<.5;let e='(−'+pick(F)+')^'+k;if(two)e+='·(−'+pick(F)+')^'+l;neg=((k%2)+(two?l%2:0))%2===1;why='Степінь '+k+(k%2?' непарний → «−»':' парний → «+»')+(two?'; степінь '+l+(l%2?' непарний → «−»':' парний → «+»')+'. Парна кількість мінусів дає «+».':'.');q.innerHTML=R(e);ga.innerHTML=`<button class=btn>+</button><button class=btn>−</button>`;fb.textContent='';const[bp,bm]=ga.querySelectorAll('button');const chk=v=>{if(v===neg){bump();fb.textContent='Вірно! '+why;setTimeout(nw,1500)}else fb.textContent='Ні. '+why};bp.onclick=()=>chk(false);bm.onclick=()=>chk(true)}
+nw();return d}
+const ERR=[{l:['({2|3})^3 = {2^3|3^3}','= {6|9}','= {2|3}'],e:1,w:'2^3 = 2·2·2 = 8, а не 2·3 = 6.'},{l:['(−{x|2})^3','= {x^3|2^3}','= {x^3|8}'],e:1,w:'Степінь 3 непарний, мінус має лишитися: −{x^3|8}.'},{l:['{a^2|b}·{b^3|a} = {a^2b^3|ab}','= {a·b^2|1}','= ab^3'],e:2,w:'b^3 : b = b^2, тому відповідь ab^2.'},{l:['{x+3|x}·{x^2|x+3} = {(x+3)·x^2|x·(x+3)}','= {x^2|x}','= x^2'],e:2,w:'x^2 : x = x, а не x^2.'}];
+function gD(){const d=gcard('Гра 4: знайди помилку','Натисни на рядок, де помилка.'),q=d.querySelector('.q'),ga=d.querySelector('.ga'),fb=d.querySelector('.fb');ga.className='ga opts';let i=-1;
+function nw(){i=(i+1)%ERR.length;const it=ERR[i];q.textContent='Завдання '+(i+1)+' з '+ERR.length;ga.innerHTML='';fb.textContent='';it.l.forEach((t,k)=>{const b=document.createElement('button');b.className='opt';b.innerHTML=R(t);b.onclick=()=>{if(k===it.e){b.classList.add('ok');bump();fb.innerHTML='Так! '+R(it.w)+` <button class='btn g'>Далі</button>`;fb.querySelector('button').onclick=nw}else{b.classList.add('bad');fb.textContent='Ні, цей рядок правильний. Дивись уважніше.'}};ga.appendChild(b)})}
+nw();return d}
+const w=document.createElement('div');w.innerHTML='<h2>Розминка <span id=stars class=hi>⭐ 0</span></h2><div class=box>Спочатку розімнемося на числах. Правило таке саме, як і для букв, тільки без змінних. Заробляй зірки!</div>';[gA,gB,gC,gD].forEach(f=>w.appendChild(f()));add('w','Розминка',w);
+let e=document.createElement('div');e.innerHTML='<h2>Теорія</h2>'+THEORY;add('t','Теорія',e);
+S.forEach(s=>{const e=document.createElement('div');e.innerHTML='<h2>'+s.t+': '+s.h+'</h2><div class="box">'+s.i+'</div>';s.tasks.forEach(t=>e.appendChild(card(t)));e.appendChild(quiz(s.quiz));add(s.id,s.t,e)});
+const NB=[['5.8',['{a|16m^2}·12m = {a·12m|16m^2} = {3a|4m}','a^3·{7x^3|a^2} = {7a^3x^3|a^2} = 7ax^3','−{7y|4x^2}·12xy^3 = −{7y·12xy^3|4x^2} = −{21y^4|x}','5cm^4·(−{m|15c}) = −{5cm^5|15c} = −{m^5|3}','−5ab^2·(−{1|10ab}) = {5ab^2|10ab} = {b|2}','13c^2d·{7|26c^3d^2} = {91c^2d|26c^3d^2} = {7|2cd}']],['5.13',['{5x^2+15x|y^2−2y}·{2−y|x+3} = {5x(x+3)·(−(y−2))|y(y−2)(x+3)} = −{5x|y}','при x = 17, y = −1/23: −5·17 : (−1/23) = 5·17·23 = 1955','Відповідь: 1955']],['5.16',['({c|5m})^2 = {c^2|25m^2}','({y|2x^3})^4 = {y^4|16x^12}','(−{4c^2m^3|5})^2 = {16c^4m^6|25}','(−{3c^3|m^7})^3 = −{27c^9|m^21}','({c^3m|2a^2})^6 = {c^18m^6|64a^12}','(−{ab^3|c^2})^8 = {a^8b^24|c^16}']]];
+const P=s=>s.replace(/\{([^{}|]*)\|([^{}]*)\}/g,'($1)/($2)');
+const TXT=()=>NB.map(([t,l])=>'Завдання '+t+'\n'+l.map((x,i)=>(t==='5.13'?'':(i+1)+') ')+P(x)).join('\n')).join('\n\n');
+const nbe=document.createElement('div');nbe.innerHTML='<h2>Зошит: розв’язання для переписування</h2><div class=box>Тут усі завдання 5.8, 5.13, 5.16 повністю розв’язані. Перепиши їх у зошит, кожен рядок — це один запис.</div>'+NB.map(([t,l])=>'<div class=card><h3>Завдання '+t+'</h3>'+l.map((x,i)=>'<div class=q>'+(t==='5.13'?'':(i+1)+') ')+R(x)+'</div>').join('')+'</div>').join('')+'<button class=btn id=pr>Друкувати або зберегти PDF</button><button class="btn g" id=cp>Копіювати текст</button><div id=cpf></div>';document.body.appendChild(nbe);nbe.hidden=true;
+document.getElementById('pr').onclick=()=>{show('nb');setTimeout(()=>{try{print()}catch(e){}},150)};
+document.getElementById('cp').onclick=()=>{const t=TXT(),b=document.getElementById('cpf'),fb=()=>{b.innerHTML='<textarea readonly rows=12 style="width:100%"></textarea>';const a=b.firstChild;a.value=t;a.select()};try{navigator.clipboard.writeText(t).then(()=>{b.textContent='Скопійовано ✅'},fb)}catch(e){fb()}};
+e=document.createElement('div');e.innerHTML='<h2>Підсумок</h2><div class="box"><ol class="al"><li>Знак: парна кількість мінусів дає «+».</li><li>Розклади все на множники (винеси спільний, формули, b−a = −(a−b)).</li><li>Запиши одним дробом і нічого не перемножуй.</li><li>Викресли однакові множники.</li><li>Степінь дробу: до кожного множника, показники в степені множимо.</li></ol></div><p>Домашнє: зроби вдома 5.8 (2), (3); 5.11 (2), (4); 5.15 (2); 5.17 (1) за зразком. Кожен крок записуй, як на цій сторінці.</p>';function upd(){const r=document.getElementById('res');if(!r)return;r.value=NB.map(([t,l])=>{const rows=t==='5.13'?(done.has('5.13')?l.map(P):['— ще не розв’язано']):l.map((x,i)=>done.has(t+' ('+(i+1)+')')?(i+1)+') '+P(x):(i+1)+') — ще не розв’язано');return 'Завдання '+t+'\n'+rows.join('\n')}).join('\n\n')}
+e.insertAdjacentHTML('beforeend',`<div class=card><h3>Результати для зошита: 5.8, 5.13, 5.16</h3><p class=mut>Текст збирається сам із завдань, які ти розв’язав до кінця (дійшов до відповіді). Нерозв’язані позначені як «ще не розв’язано».</p><textarea id=res readonly rows=20 style='width:100%;font:15px/1.5 monospace;padding:8px;border:1px solid var(--ln);border-radius:8px;background:var(--bg);color:var(--fg)'></textarea><button class=btn id=rcp>Копіювати текст</button><span id=rmsg class=mut></span></div>`);
+document.getElementById('rcp').onclick=()=>{upd();const r=document.getElementById('res');r.select();try{navigator.clipboard.writeText(r.value).then(()=>{document.getElementById('rmsg').textContent=' Скопійовано ✅'},()=>{document.execCommand('copy')})}catch(x){try{document.execCommand('copy')}catch(y){}}};
+add('z','Підсумок',e);
+
+function calc(){const v=['a','b','c','d'].map(i=>+document.getElementById(i).value||0),[a,b,c,d]=v,o=document.getElementById('calc');
+if(!b||!d){o.innerHTML='Знаменник не може дорівнювати 0';return}
+const n=a*c,m=b*d,g=gcd(n,m)||1;
+o.innerHTML=R('{'+a+'|'+b+'}·{'+c+'|'+d+'} = {'+a+'·'+c+'|'+b+'·'+d+'} = {'+n+'|'+m+'}')+(g>1?'<br>Скорочуємо на '+g+': '+R('{'+n+'|'+m+'} = {'+n/g+'|'+m/g+'}'):'<br>Скоротити далі не можна.')}
+['a','b','c','d'].forEach(i=>document.getElementById(i).oninput=calc);calc();
+try{Object.assign(store,JSON.parse(localStorage.getItem('urok-draw')||'{}'))}catch(e){}
+show('w');
+</script>
+</body>
+</html>
